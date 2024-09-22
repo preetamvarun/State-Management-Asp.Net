@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StateManagement.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -289,6 +290,31 @@ namespace StateManagement.Controllers
         }
 
 
+
+
+        #endregion
+
+        #region LearnModels
+
+        #region Notes
+        /*
+         * In Anonymous types we have created an instance without a class and used it only once. While with Models we will be having classes under Models folder.
+         * We will use Models for multi purpose
+         * With Models we will Intellisense support and type safety (remember we have type safety with ViewBags)
+        */
+        #endregion
+
+        [HttpGet]
+        public ViewResult Product()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ViewResult Product(Product Product)
+        {
+            return View("ProcessProduct", Product);
+        }
 
 
         #endregion
