@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -109,6 +110,8 @@
     <Content Include="Views\Home\ProcessRegistration.cshtml" />
     <Content Include="Views\Home\PurchaseProduct.cshtml" />
     <Content Include="Views\Home\DisplayProductDetails.cshtml" />
+    <Content Include="Views\Home\FavouriteSingerDetails.cshtml" />
+    <Content Include="Views\Test\DisplaySinger.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

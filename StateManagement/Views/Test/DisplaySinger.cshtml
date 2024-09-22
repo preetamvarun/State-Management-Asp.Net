@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplaySinger</title>
+</head>
+<body>
+    <div> 
+        @{ 
+            HttpCookie Singer_Cookie = Request.Cookies["Singer_Cookie"];
+            if(Singer_Cookie != null)
+            {
+                string name = Singer_Cookie["Name"];
+                string country = Singer_Cookie["Country"];
+                int age = int.Parse(Singer_Cookie["Age"]);
+                <h1>@name</h1>
+                <h2>@country</h2>
+                <h3>@age</h3>
+            }
+            else
+            {
+                <p>Singer Details Not Found</p>
+            }
+        }
+    </div>
+</body>
+</html>
