@@ -14,6 +14,7 @@
     <div> 
         @{ 
             string username = ViewData["username"].ToString();
+            // string username = ViewBag.username; // ViewBag and ViewData Can be interchangeable
             string password = ViewData["password"].ToString();
             string message = (username == "admin" && password == "admin123") ? $"Welcome! {username}" : "Invalid Credentials";
         }
@@ -25,5 +26,4 @@
 
 @*
 One of the drawbacks of viewdata is you have to explicitly do the type conversion and it's limited scope.    
-
 *@

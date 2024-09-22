@@ -38,7 +38,37 @@ namespace StateManagement.Controllers
 
             */
         }
+
         #endregion
+
+
+        #region PracticeViewBag
+        [HttpGet]
+        public ViewResult Registration()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ViewResult Registration(string fname, string lname, int age)
+        {
+            ViewBag.fname = fname;
+            ViewBag.lname = lname;
+            ViewBag.age = age;
+            return View("ProcessRegistration");
+
+            /*
+             * ViewBags came after ViewData
+             * ViewBag internally uses ViewData
+             * ViewBag has also limited scope only just like ViewData
+            */
+
+        }
+        #endregion
+
+
+
     }
 }
 

@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ProcessRegistration</title>
+</head>
+<body>
+    <div>
+        @{
+            // Retrieving the values from the action method through ViewBag
+            string fname = ViewBag.fname, lname = ViewBag.lname;
+
+            // string fname = ViewData["fname"].ToString(), lname = ViewData["lname"].ToString(); 
+
+            int age = ViewBag.age;
+            <p>Full name of the registered user is : @(fname + lname) </p>
+            <p>Age is : @age</p>
+            <p>Registered user is a : @(age < 18 ? "Minor" : "Major")</p>
+        }
+    </div>
+</body>
+</html>
+
+
+<!--
+
+* Unlike ViewData, ViewBag is TypeSafe. So, we don't need to convert them explicitly while using them in the views
+* ViewBag is like a wrapper around the ViewData. So, the data that is stored in the ViewBag will be internally using ViewDataDictionary Only.
+* So, the values that are stored in the viewbag can be accessed by the viewdata and vice-versa
+
+
+    code line 19 : also works fine.
+-->
