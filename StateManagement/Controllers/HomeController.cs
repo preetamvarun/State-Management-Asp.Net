@@ -316,6 +316,22 @@ namespace StateManagement.Controllers
 
         #endregion
 
+        #region FormCollections
+        [HttpGet]
+        public ViewResult Cricketer()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ViewResult Cricketer(FormCollection FC)
+        {
+            ViewData["cname"] = FC["cname"];
+            ViewData["cage"] = FC["cage"];
+            ViewData["cethnicity"] = FC["cethnicity"];
+            return View("ProcessCricketer");
+        }
+        #endregion
     }
 }
 

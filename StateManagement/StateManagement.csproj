@@ -121,6 +121,8 @@
     <Content Include="Views\Home\ProcessAnonType.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\ProcessProduct.cshtml" />
+    <Content Include="Views\Home\ProcessCricketer.cshtml" />
+    <Content Include="Views\Home\Cricketer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
