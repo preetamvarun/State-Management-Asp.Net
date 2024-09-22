@@ -18,7 +18,9 @@
             <!-- Input tag for the name of the product -->
             <div>
                 <label>Enter the name of the product</label>
-                <input type="text" name="pname" />
+
+                <!--id attribute is only to refer to the control in the client side. If you want to access the value on the server side we need name attribute. -->
+                <input type="text" name="pname" id="pName"/>
             </div>
 
             <!-- Input tag for the price of the product -->
