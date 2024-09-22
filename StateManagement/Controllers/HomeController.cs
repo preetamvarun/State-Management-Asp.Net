@@ -17,7 +17,6 @@ namespace StateManagement.Controllers
         }
         #endregion
 
-
         #region ViewData
 
         [HttpGet]
@@ -41,7 +40,6 @@ namespace StateManagement.Controllers
         }
 
         #endregion
-
 
         #region PracticeViewBag
         [HttpGet]
@@ -67,7 +65,6 @@ namespace StateManagement.Controllers
 
         }
         #endregion
-
 
         #region PracticeTempData
 
