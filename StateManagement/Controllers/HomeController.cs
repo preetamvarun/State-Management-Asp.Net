@@ -224,6 +224,42 @@ namespace StateManagement.Controllers
 
         #endregion
 
+        #region LearnApplications
+
+        #region ApplicationsNotes
+        /*
+         * Sessions are single user global data, whereas Applications are multiple user global data.
+         * User's - 1 data stored in the application memory can be accessed by User-2.
+         * Here we need to consider thread safety. If mutliple users are accessing the same memory we need to take thread safety into the account.
+         * Application state data is not thread safe. So, when we are using application memory it is our responsibility to lock and unlock. 
+         * Application state data is stored in the memory of the web server and is faster than storing and retrieving information from the database. 
+         * This data doesn't have any expiration date like session data. When we recycle the worker process or restart the webserver then application state data will be lost.
+        */
+        #endregion
+        [HttpGet]
+        public ViewResult App()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ViewResult AppAction()
+        {
+            return View("~/Views/Home/Facts.cshtml");
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult App(string es, string sr, string pwd)
+        {
+            HttpContext.Application.Lock();
+            HttpContext.Application["es"] = es;
+            HttpContext.Application["sr"] = sr;
+            HttpContext.Application["pwd"] = pwd;
+            HttpContext.Application.UnLock();
+            return RedirectToAction("AppAction");
+        }
+
+        #endregion
 
     }
 }
