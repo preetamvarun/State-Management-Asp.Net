@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplayProductDetails</title>
+</head>
+<body>
+    <div>
+        @*
+        You can go for using Peek if you want to retain only certain values
+        or you can for using Keep if you want to retain all the values
+        @{TempData.Keep();}
+        *@
+        <p>Product name is : @TempData.Peek("ProductName")</p>
+        <p>Product price is : @TempData.Peek("ProductPrice")</p>
+        <p>Country name is : @TempData["CountryName"]</p>
+    </div>
+</body>
+</html>

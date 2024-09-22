@@ -68,6 +68,38 @@ namespace StateManagement.Controllers
         #endregion
 
 
+        #region PracticeTempData
+
+        /*
+        The only difference between the TempData and the ViewData is the scope.
+        Temp Data has got better scope than ViewData.
+        Values in Temp Data can persist across multiple http requests. 
+         */
+
+
+        [HttpGet]
+        public ViewResult PurchaseProduct()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ViewResult DisplayProductDetails()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult PurchaseProduct(string pname, double pprice, string cname)
+        {
+            TempData["ProductName"] = pname;
+            TempData["ProductPrice"] = pprice;
+            TempData["CountryName"] = cname;
+            return RedirectToAction("DisplayProductDetails");
+        }
+
+        #endregion
+
 
     }
 }

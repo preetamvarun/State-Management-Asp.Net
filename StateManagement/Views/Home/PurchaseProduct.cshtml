@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Purchase Product</title>
+</head>
+<body>
+    <div>
+        <!-- Creating a form for product information -->
+        <form method="post">
+
+            <!-- Input tag for the name of the product -->
+            <div>
+                <label>Enter the name of the product</label>
+                <input type="text" name="pname" />
+            </div>
+
+            <!-- Input tag for the price of the product -->
+            <div>
+                <label>Enter the price of the product</label>
+                <!-- step = "any", allows for any decimal places, whereas, step = "0.1" allows only two decimal places -->
+                <input type="number" name="pprice" step="0.1" />
+            </div>
+
+            <!-- Input tag for the country name -->
+            <div>
+                <label>Enter country name</label>
+                <input type="text" name="cname" />
+            </div>
+
+            <!-- Finally a submit button -->
+            <button type="submit">enter</button>
+
+        </form>
+    </div>
+</body>
+</html>
