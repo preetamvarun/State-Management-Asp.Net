@@ -123,6 +123,8 @@
     <Content Include="Views\Home\ProcessProduct.cshtml" />
     <Content Include="Views\Home\ProcessCricketer.cshtml" />
     <Content Include="Views\Home\Cricketer.cshtml" />
+    <Content Include="Views\Home\Person.cshtml" />
+    <Content Include="Views\Home\DisplayPerson.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

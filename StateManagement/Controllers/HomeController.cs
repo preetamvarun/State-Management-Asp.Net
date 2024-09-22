@@ -332,6 +332,38 @@ namespace StateManagement.Controllers
             return View("ProcessCricketer");
         }
         #endregion
+
+        #region HTMLHelpers
+        #region Notes
+        /*
+         * We can design views by using HTML controls, HTML helpers and Strongly Typed HTML Helpers
+         * To help us simplify the UI designing process MVC provides HTML Helper Methods and these helper methods render the required HTML code
+         * @Html.TextBox("Job") => <input type = "text" id = "Job" name = "Job"/>
+         * @{Html.BeginForm(); Html.EndForm();} or @using(Html.BeginForm()) {....}
+         * HTML form => default method is get, HTML Helper Form => default method is post 
+         * Submit and reset don't have any helper methods 
+         * You can pass additional HTML attributes as anonymous types
+        */
+        #endregion
+
+        [HttpGet]
+        public ViewResult Person()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ViewResult Person(FormCollection Fc)
+        {
+            ViewData["pname"] = Fc["pname"];
+            ViewData["page"] = Fc["page"];
+            ViewData["pdept"] = Fc["dept"];
+            ViewData["pgender"] = Fc["pgender"];
+            ViewData["pcheckbox"] = Fc["pcheck"];
+            ViewData["ppwd"] = Fc["pwd"];
+            return View("~/Views/Home/DisplayPerson.cshtml");
+        }
+        #endregion
     }
 }
 

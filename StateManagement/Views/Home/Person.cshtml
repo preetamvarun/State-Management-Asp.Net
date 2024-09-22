@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Person</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Person", "Home", FormMethod.Post))
+        {
+            <div>
+                @Html.Label("Enter person name", new { name = "Plabel", id = "Plabel" })
+                @Html.TextBox("pname", null, new { placeholder = "Enter your name" })
+            </div>
+
+            <div>
+                @Html.Label("Enter your age")
+                @Html.TextBox("page", null, new { type = "number", min = "0", max = "120" })
+            </div>
+
+            <div>
+                @Html.Label("Enter your department")
+                @{
+                    List<string> depts = new List<string> { "CSE", "Mechanical", "ECE", "EEE" };
+                    SelectList sl = new SelectList(depts);
+                    @Html.DropDownList("dept", sl)
+                }
+            </div>
+
+            <div>
+                @Html.Label("Choose Gender")
+                @Html.RadioButton("pgender", "Male") Male
+                @Html.RadioButton("pgender", "Female") Female
+            </div>
+
+            <div>
+                @Html.Label("Enter your password")
+                @Html.Password("pwd")
+            </div>
+
+            <div>
+                @Html.Label("Terms and Conditions")
+                @Html.CheckBox("pcheck", true) I Accept the terms and conditions
+            </div>
+
+
+            <button type="submit">post</button>
+
+        }
+    </div>
+</body>
+</html>
