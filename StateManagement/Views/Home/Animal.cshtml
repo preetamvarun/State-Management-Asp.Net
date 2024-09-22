@@ -1,0 +1,57 @@
+﻿@model StateManagement.Models.Animal
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Animal</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.LabelFor(a => a.Name)
+                @Html.TextBoxFor(a => a.Name, null, new { placeholder = "Enter your name" })
+            </div>
+
+            <div>
+                @Html.LabelFor(a => a.Age)
+                @Html.TextBoxFor(a => a.Age, null, new { type = "number", min = "0", max = "15" })
+            </div>
+
+            <div>
+                @Html.LabelFor(a => a.Department)
+                @{
+                    List<string> ls = new List<string> { "Herbivorous", "Carnivorous", "Omnivorous" };
+                    SelectList sl = new SelectList(ls);
+                    @Html.DropDownListFor(a => a.Department, sl);
+                }
+            </div>
+            <div>
+                @Html.LabelFor(a => a.Gender)
+                @Html.RadioButtonFor(a => a.Gender, "Male") Male;
+                @Html.RadioButtonFor(a => a.Gender, "Female") Female;
+            </div>
+            <div>
+                @Html.LabelFor(a => a.AcceptTerms)
+                @Html.CheckBoxFor(a => a.AcceptTerms, false) I accept the terms and conditions;
+            </div>
+            <div>
+                @Html.LabelFor(a => a.Comments)
+                @Html.TextAreaFor(a => a.Comments, new { placeholder = "enter your comments", rows = 5, columns = 40 })
+            </div>
+            <div>
+                @Html.LabelFor(a => a.Password)
+                @Html.PasswordFor(a => a.Password)
+            </div>
+            <button type="submit">Post</button>
+        }
+    </div>
+</body>
+</html>

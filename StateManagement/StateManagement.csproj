@@ -98,6 +98,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -125,6 +126,8 @@
     <Content Include="Views\Home\Cricketer.cshtml" />
     <Content Include="Views\Home\Person.cshtml" />
     <Content Include="Views\Home\DisplayPerson.cshtml" />
+    <Content Include="Views\Home\Animal.cshtml" />
+    <Content Include="Views\Home\DisplayAnimal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -364,6 +364,28 @@ namespace StateManagement.Controllers
             return View("~/Views/Home/DisplayPerson.cshtml");
         }
         #endregion
+
+        #region StronglyTypedHTMLHelpers
+        #region Notes
+        /*
+         * With strongly typed HTML helpers we get the intellisense support. Put all the id and name attribute values in a Model class.
+        */
+        #endregion
+
+        [HttpGet]
+        public ViewResult Animal()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ViewResult Animal(Animal animal)
+        {
+            return View("~/Views/Home/DisplayAnimal.cshtml", animal);
+        }
+
+        #endregion
     }
 }
 
