@@ -10,10 +10,16 @@ namespace StateManagement.Controllers
 {
     public class TestController : Controller
     {
-        // GET: Test
+        [HttpGet]
         public ViewResult DisplaySinger()
         {
             return View("~/Views/Test/DisplaySinger.cshtml");
+        }
+
+        [HttpGet]
+        public ViewResult DisplayCricketer()
+        {
+            return View("~/Views/Test/DisplayCricketer.cshtml");
         }
     }
 }

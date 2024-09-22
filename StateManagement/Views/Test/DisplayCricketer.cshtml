@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplayCricketer</title>
+</head>
+<body>
+    <div>
+        @{
+            string CricketerName = Session["Cricketer Name"].ToString();
+            int CricketerAge = int.Parse(Session["Cricketer Age"].ToString());
+            <p>@CricketerName</p>
+            <p>@CricketerAge</p>
+        }
+    </div>
+</body>
+</html>

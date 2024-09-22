@@ -112,6 +112,8 @@
     <Content Include="Views\Home\DisplayProductDetails.cshtml" />
     <Content Include="Views\Home\FavouriteSingerDetails.cshtml" />
     <Content Include="Views\Test\DisplaySinger.cshtml" />
+    <Content Include="Views\Test\DisplayCricketer.cshtml" />
+    <Content Include="Views\Home\FavouriteCricketerDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
