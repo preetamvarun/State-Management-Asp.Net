@@ -261,6 +261,38 @@ namespace StateManagement.Controllers
 
         #endregion
 
+        #region LearnAnonymousTypes
+
+        #region Notes
+        /*
+         * This is another mechanism using which we can transfer the values from action method to action method (of another class or of same class) without using
+         * view data, view bag, temp data, session. 
+         * An Anonymous type is a class without a name that contains read only properties for which we can create an instance with the help of new keyword.
+         * var emp = new {...object initializer...}
+         * The class is defined for you by the compiler with all the attributes. 
+         * When you want the usage for only one time then Anonymous Types are better
+        */
+        #endregion
+
+
+        [HttpGet]
+        public ViewResult AnonymousTypes()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ViewResult AnonymousTypes(string EmpName, int EmpAge, string Department)
+        {
+            var Emp = new { EmpName, EmpAge, Department };
+            return View("ProcessAnonType", Emp);
+        }
+
+
+
+
+        #endregion
+
     }
 }
 

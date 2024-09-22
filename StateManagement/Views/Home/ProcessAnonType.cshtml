@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ProcessAnonType</title>
+</head>
+<body>
+    <div> 
+        @Convert.ToString(ViewData.Eval("EmpName"))
+        @Convert.ToInt32(ViewData.Eval("EmpAge"))
+        @Convert.ToString(ViewData.Eval("Department"))
+    </div>
+</body>
+
+@*
+Convert.ToString(null_value) : No error
+(null_value).ToString() : Error
+*@
+</html>

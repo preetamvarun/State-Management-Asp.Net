@@ -116,6 +116,8 @@
     <Content Include="Views\Home\FavouriteCricketerDetails.cshtml" />
     <Content Include="Views\Home\App.cshtml" />
     <Content Include="Views\Home\Facts.cshtml" />
+    <Content Include="Views\Home\AnonymousTypes.cshtml" />
+    <Content Include="Views\Home\ProcessAnonType.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
