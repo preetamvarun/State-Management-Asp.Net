@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div> 
+        <table>
+            <tr>
+                <td>
+                    <img src= @Url.Content("~/Images/Img-1.jpg") style="height : 100px; width : 100px;" class="rounded-circle"/>
+                </td>
+                <td>
+                    <img src= @Url.Content("~/Images/Img-2.jpg") style="height : 100px; width : 100%;" class="rounded"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <nav class="navbar-dark bg-primary">
+                        @Html.ActionLink("Home Page", "Home", "Layout", new { @class = "navbar-brand" }) <br />
+                        @Html.ActionLink("Registration Page", "Register", "Layout", new { @class = "navbar-brand" }) <br />
+                        @Html.ActionLink("Login Page", "Login", "Layout", new { @class = "navbar-brand" }) <br />
+                        @Html.ActionLink("Courses Offered", "Courses", "Layout", new { @class = "navbar-brand" }) <br />
+                        @Html.ActionLink("About Us", "About", "Layout", new { @class = "navbar-brand" }) <br />
+                    </nav>
+                </td>
+                <td>
+                    @RenderBody()
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="width : 100%">
+                    @RenderSection("Str", false)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="width : 100%">
+                    <p>This is a footer</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

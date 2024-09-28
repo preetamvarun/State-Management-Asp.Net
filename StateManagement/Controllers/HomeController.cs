@@ -407,6 +407,20 @@ namespace StateManagement.Controllers
         }
 
         #endregion
+
+        #region LearnLayoutViews
+        /*
+         * Layout view will be only one and content views will come and sit in the layout view
+         * To include a content view into a particular location of a layout view we need to call a method called RenderBody.
+         * A layout view can contain only 1 RenderBody method call.
+         * To include a piece of text inside a layout view we need to call RenderSection method. n number of these methods can be present.
+         * RenderSection(string name, bool required) required = true, value to the rendersection is mandatory else optional.
+         * Just like partial views layout views are also stored in shared folder and starts with underscore (general naming convention).
+         * If you want to apply any Layout to a view, we can do in two different ways : 
+         * (i) Page Level Binding : @{Layout = "~/Views/Shared/_SiteMaster.cshtml"}
+         * (ii) Application level binding :  @{Layout = "~/Views/Shared/_SiteMaster.cshtml"} in _ViewStart.cshtml file
+        */
+        #endregion
     }
 }
 
