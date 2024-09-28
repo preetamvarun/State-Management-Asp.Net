@@ -1,0 +1,32 @@
+﻿@model List<StateManagement.Models.Customer>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplayCustomers</title>
+    <style>
+        .customer-details span {
+            margin : .75rem 0rem;
+            font-size : 1.25rem;
+            display : block;
+        }
+    </style>
+</head>
+<body>
+    <div> 
+        @{ 
+            foreach(var customer in Model)
+            {
+                Html.RenderPartial("_CustomerInfo", customer);
+            }
+        }
+        
+    </div>
+</body>
+</html>

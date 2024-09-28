@@ -386,6 +386,27 @@ namespace StateManagement.Controllers
         }
 
         #endregion
+
+        #region PartialView
+        /*
+         * A partial view is also a view that can be used in other view(s).
+         * They provide reusability 
+         *  partial views are stored in the shared folder because they are consumed by other views in an application.
+         *  Naming convention for partial views : starts with an underscore (to differentiated them from other views)
+         *  partial views don't have a head tag or a body tag
+         *  To render a partial view, we write @{ Html.RenderPartial("_pviewname"); }
+         *  There are three ways to render a partial view : 
+         *  @{ Html.RenderPartial("_pviewname"); }
+         *  @{ Html.Partial("_pviewname"); }
+         *  @{Html.RenderAction("ActionMethodName")}
+        */
+        [HttpGet]
+        public PartialViewResult PartialAction()
+        {
+            return PartialView("_Welcome");
+        }
+
+        #endregion
     }
 }
 

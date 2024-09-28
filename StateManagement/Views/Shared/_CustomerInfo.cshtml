@@ -1,0 +1,15 @@
+﻿@model StateManagement.Models.Customer
+
+<div class="customer" style="border : 2px solid red; display : inline-block; padding : 1rem;">
+    <div>
+        <img src=@Url.Content(@Model.Photo) alt="Img-1" />
+    </div>
+    <div class="customer-details">
+        <span><strong>Id</strong> : @Model.CustId</span>
+        <span><strong>Name</strong> : @Model.Name</span>
+        <span><strong>Status</strong> : @Model.Status</span>
+        <span><strong>City</strong> : @Model.City</span>
+        <span><strong>Balance</strong> : @Model.Balance</span>
+        <span><strong>Account</strong> : @Model.Account</span>
+    </div>
+</div>
