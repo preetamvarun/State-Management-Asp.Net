@@ -438,6 +438,12 @@ namespace StateManagement.Controllers
          * In Asp.Net MVC projects you have to manually include files in the project (show all files -> include in the project)
         */
         #endregion
+
+        #region Areas
+        /*
+         * It is an appraoch of dividing a large mvc application into smaller units where each unit will have its own model, view and controller.
+        */
+        #endregion
     }
 }
 
