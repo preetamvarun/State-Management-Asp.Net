@@ -421,6 +421,23 @@ namespace StateManagement.Controllers
          * (ii) Application level binding :  @{Layout = "~/Views/Shared/_SiteMaster.cshtml"} in _ViewStart.cshtml file
         */
         #endregion
+
+        #region LearnBundling&Minification
+        /*
+         * Bundling and Minification are two techniques we use in web applications to reduce the load time. 
+         * Bundling : Reducing the no of requests to the server (to get the assets)
+         * Minification : Reducing the size of the assets (css & js) [Removing unnecessary white spaces, line breaks, comments, shortening variable names]
+         * Most of the modern browsers are capable of sending 6 simultaneous requests to the server. 
+         * That means while 6 requests are being processed additional requests are queued by the browser.
+         * To perform bundling we need to take the help of "Web Optimization Framework" library (install via nugget package manager)
+         * This library has set of classes
+         * Style Bundle : This represents a collection of style sheet files
+         * Script Bundle : This represents a collection of script files
+         * Bundle Collection : This represents a set of style bundles and script bundles
+         * Bundle Table : This is a holder class for the Bundle collection
+         * In Asp.Net MVC projects you have to manually include files in the project (show all files -> include in the project)
+        */
+        #endregion
     }
 }
 

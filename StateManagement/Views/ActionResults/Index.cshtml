@@ -9,16 +9,17 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link href="~/Minify/style1.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div> 
+    <div>
         <h1>Learn Action Results</h1>
-        @Html.ActionLink("Get Employee Information", "GetEmployees","ActionResults")
+        @Html.ActionLink("Get Employee Information", "GetEmployees", "ActionResults")
         @Html.ActionLink("Download", "DownloadPdf", "ActionResults")
         @Html.ActionLink("Open Facebook", "OpenFacebook", "ActionResults")
         @Html.ActionLink("Get Today's Date", "GetDate", "ActionResults")
-        @Html.ActionLink("SayHello", "SayHello","ActionResults")
-        @Html.ActionLink("Alert", "Alert","ActionResults")
+        @Html.ActionLink("SayHello", "SayHello", "ActionResults")
+        @Html.ActionLink("Alert", "Alert", "ActionResults")
     </div>
 </body>
 </html>
