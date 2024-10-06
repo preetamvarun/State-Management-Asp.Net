@@ -2,12 +2,15 @@
     Layout = null;
 }
 
+@using System.Web.Optimization
+
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    @Styles.Render("~/Content/StyleBundle")
 </head>
 <body>
     @{ 

@@ -3,13 +3,16 @@
     Layout = null;
 }
 
+@using System.Web.Optimization
+
+
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
-    <link href="~/Minify/style1.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/StyleBundle")
 </head>
 <body>
     <div>
