@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>Learn Action Results</h1>
+        @Html.ActionLink("Get Employee Information", "GetEmployees","ActionResults")
+        @Html.ActionLink("Download", "DownloadPdf", "ActionResults")
+        @Html.ActionLink("Open Facebook", "OpenFacebook", "ActionResults")
+        @Html.ActionLink("Get Today's Date", "GetDate", "ActionResults")
+        @Html.ActionLink("SayHello", "SayHello","ActionResults")
+        @Html.ActionLink("Alert", "Alert","ActionResults")
+    </div>
+</body>
+</html>
