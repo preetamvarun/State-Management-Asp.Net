@@ -175,7 +175,7 @@ namespace StateManagement.Controllers
          * Here comes the role of Session-ID
          * This Session-ID is an alpha numeric string stored in the form of in-memory cookie. So, whenever a client comes with a subsequent request, he comes with this 
          * Session-ID, and server reads this Session-ID from the cookie and associates the user with his session.
-         * Every session is going to a expiration time (aka sliding expiration). Generally, it is 20minutes. But it varies from server to server.
+         * Every session is going to have a expiration time (a.k.a sliding expiration). Generally, it is 20minutes. But it varies from server to server.
          * If a user fails to send a request within 20minutes from the last request, then the server is going to destroy the session. 
          * We can explicitly destroy the session though by calling the abandon method. Session.Abandon(); We do this in variety of scenarios. (Like when a user logs out)
          * so where exactly the server is going to store these session values? There are three places actually
@@ -284,6 +284,7 @@ namespace StateManagement.Controllers
         {
             var Emp = new { EmpName, EmpAge, Department };
             return View("ProcessAnonType", Emp);
+            // can't we pass this object to another action method and from there can't we send it another view?
         }
 
 
@@ -390,7 +391,7 @@ namespace StateManagement.Controllers
         #region PartialView
         /*
          * A partial view is also a view that can be used in other view(s).
-         * They provide reusability 
+         *  They provide reusability 
          *  partial views are stored in the shared folder because they are consumed by other views in an application.
          *  Naming convention for partial views : starts with an underscore (to differentiated them from other views)
          *  partial views don't have a head tag or a body tag

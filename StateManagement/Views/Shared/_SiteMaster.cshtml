@@ -28,11 +28,13 @@
                     </nav>
                 </td>
                 <td>
+                    <!-- A layout view can contain only one render body method call -->
                     @RenderBody()
                 </td>
             </tr>
             <tr>
                 <td colspan="2" style="width : 100%">
+                    <!-- We can include n number of render section methods -->
                     @RenderSection("Str", false)
                 </td>
             </tr>
