@@ -1,0 +1,85 @@
+﻿@model StateManagement.Models.Member
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Member</title>
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            /*
+            <div>
+                @Html.ValidationSummary()
+            </div>
+            Shows all the validation error messages at one place
+            */
+            <div>
+                @Html.LabelFor(Mem => Mem.Name)
+                <!--Based on the data type it generates the required control (TextBox, Passowrd, Email and so on)-->
+                @Html.EditorFor(Mem => Mem.Name)
+                <!--To display the error message when the validation fails -->
+                <!-- Display the error message associated with Name property -->
+                @Html.ValidationMessageFor(Mem => Mem.Name)
+            </div>
+            <div>
+                @Html.LabelFor(Mem => Mem.ActivationCode)
+                @Html.EditorFor(Mem => Mem.ActivationCode)
+                @Html.ValidationMessageFor(Mem => Mem.ActivationCode)
+            </div>
+            <div>
+                @Html.LabelFor(Mem => Mem.Nino)
+                @Html.EditorFor(Mem => Mem.Nino)
+                @Html.ValidationMessageFor(Mem => Mem.Nino)
+            </div>
+            <div>
+                @Html.LabelFor(Mem => Mem.DOB)
+                @Html.EditorFor(Mem => Mem.DOB)
+                @Html.ValidationMessageFor(Mem => Mem.DOB)
+            </div>
+            <div>
+                @Html.LabelFor(Mem => Mem.Email)
+                @Html.EditorFor(Mem => Mem.Email)
+               
+             * 
+             * 
+             * 
+             * 
+             * 
+             *  @Html.ValidationMessageFor(Mem => Mem.Email)
+            </div>
+            <div>
+                @Html.LabelFor(Mem => Mem.ConfirmEmail)
+                @Html.EditorFor(Mem => Mem.ConfirmEmail)
+                @Html.ValidationMessageFor(Mem => Mem.ConfirmEmail)
+            </div>
+            <div>
+                @Html.LabelFor(Mem => Mem.Password)
+                @Html.EditorFor(Mem => Mem.Password)
+                @Html.ValidationMessageFor(Mem => Mem.Password)
+            </div>
+            <div>
+                @Html.LabelFor(Mem => Mem.ConfirmPassword)
+                @Html.EditorFor(Mem => Mem.ConfirmPassword)
+                @Html.ValidationMessageFor(Mem => Mem.ConfirmPassword)
+            </div>
+            <div>
+                @Html.LabelFor(Mem => Mem.Address)
+                @Html.EditorFor(Mem => Mem.Address)
+                @Html.ValidationMessageFor(Mem => Mem.Address)
+            </div>
+            <button type="submit">Register</button>
+        }
+    </div>
+</body>
+</html>

@@ -24,7 +24,7 @@ namespace StateManagement.Controllers
         {
             return View();
         }
-       
+
         [HttpPost]
         public ViewResult Login(string uname, string pwd)
         {
@@ -444,6 +444,25 @@ namespace StateManagement.Controllers
         /*
          * It is an appraoch of dividing a large mvc application into smaller units where each unit will have its own model, view and controller.
         */
+        #endregion
+
+        #region DataAnnotations 
+        [HttpGet]
+        public ViewResult Member()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ViewResult Member(Member Mem)
+        {
+            // If client side validations are failed for some reason 
+            // server will again do all the validations. Look at the property below 
+            if(ModelState.IsValid) return View("ProcessMember", Mem);
+            return View("Member");
+        }
+
         #endregion
     }
 }
