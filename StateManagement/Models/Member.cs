@@ -28,6 +28,7 @@ namespace StateManagement.Models
         [Display(Name = "Date Of Birth")]
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Please enter your date of birth")]
+        [System.Web.Mvc.Remote("AgeValidator","Home", ErrorMessage = "Must be greater than 18 years old")]
         public DateTime DOB { get; set; }
 
         [Display(Name = "Email Address")]

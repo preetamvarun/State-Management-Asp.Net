@@ -463,6 +463,13 @@ namespace StateManagement.Controllers
             return View("Member");
         }
 
+
+        public JsonResult AgeValidator(DateTime DOB)
+        {
+            bool Status = (DOB > DateTime.Now.AddYears(-18)) ? false : true;
+            return Json(Status, JsonRequestBehavior.AllowGet);
+        }
+
         #endregion
     }
 }

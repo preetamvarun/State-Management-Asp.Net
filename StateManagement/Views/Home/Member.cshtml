@@ -50,13 +50,7 @@
             <div>
                 @Html.LabelFor(Mem => Mem.Email)
                 @Html.EditorFor(Mem => Mem.Email)
-               
-             * 
-             * 
-             * 
-             * 
-             * 
-             *  @Html.ValidationMessageFor(Mem => Mem.Email)
+                @Html.ValidationMessageFor(Mem => Mem.Email)
             </div>
             <div>
                 @Html.LabelFor(Mem => Mem.ConfirmEmail)
@@ -79,7 +73,7 @@
                 @Html.ValidationMessageFor(Mem => Mem.Address)
             </div>
             <button type="submit">Register</button>
-        }
+         }
     </div>
 </body>
 </html>
