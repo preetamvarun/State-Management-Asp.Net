@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="master" Class="PersonDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.PERSON" Member="PERSONs">
+    <Type Name="PERSON">
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="p_fname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="p_mname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="p_lname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="p_age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="p_dob" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="p_gender" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="p_salary" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="p_photo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model StateManagement.Models.PERSON
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddPerson</title>
+</head>
+<body>
+    <!--You can't upload images directly in html. In form tag you need to set enctype-->
+    @using (Html.BeginForm("AddPerson", "Home", FormMethod.Post, new {enctype = "multipart/form-data"}))
+    {
+        <div>
+            @Html.LabelFor(P => P.p_id)
+            @Html.TextBoxFor(P => P.p_id, new { type = "number" })
+        </div>
+        <div>
+            @Html.LabelFor(P => P.p_fname)
+            @Html.TextBoxFor(P => P.p_fname)
+        </div>
+        <div>
+            @Html.LabelFor(P => P.p_mname)
+            @Html.TextBoxFor(P => P.p_mname)
+        </div>
+        <div>
+            @Html.LabelFor(P => P.p_lname)
+            @Html.TextBoxFor(P => P.p_lname)
+        </div>
+        <div>
+            @Html.LabelFor(P => P.p_age)
+            @Html.TextBoxFor(P => P.p_age, new { type = "number", min = "0", max = "100" })
+        </div>
+        <div>
+            @Html.LabelFor(P => P.p_dob)
+            @Html.TextBoxFor(P => P.p_dob, new { type = "date" })
+        </div>
+        <div>
+            @Html.LabelFor(P => P.p_gender)
+            @Html.RadioButtonFor(P => P.p_gender, "Male") Male
+            @Html.RadioButtonFor(P => P.p_gender, "Female") Female
+        </div>
+        <div>
+            @Html.LabelFor(P => P.p_salary)
+            @Html.TextBoxFor(P => P.p_salary, new { @type = "number", @step = "0.01", @min = "0" })
+        </div>
+        <div>
+            @Html.LabelFor(P => P.p_photo)
+            <!--No HTML helpers available. Use html control-->
+            <input type="file" name="selectedFile" />
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+            <input type="reset" value="Reset" />
+        </div>
+    }
+
+    @Html.ActionLink("Go Back", "DisplayPeople", "Home")
+</body>
+</html>

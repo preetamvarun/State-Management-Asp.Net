@@ -44,6 +44,8 @@
    <a href="@Url.Action("Person","Home")">Person(Html helpers)</a>
    <a href="@Url.Action("Animal", "Home")">Animal (Strongly Typed HTML Helpers)</a>
    @Html.ActionLink("Visit Doctor Site","Index","Home",new {area = "Doctor"}, null)
-    @Html.ActionLink("Visit Staff site", "Index", "Home", new {area = "Staff"}, null)
+   @Html.ActionLink("Visit Staff site", "Index", "Home", new {area = "Staff"}, null)
+    <br/>
+   @Html.ActionLink("Display People","DisplayPeople","Home", new {area = ""}, null)
 </body>
 </html>

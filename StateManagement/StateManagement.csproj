@@ -51,6 +51,7 @@
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -154,6 +155,12 @@
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Person.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Person.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonDAL.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -180,6 +187,14 @@
     <Content Include="Areas\Doctor\Views\Home\Index.cshtml" />
     <Content Include="Areas\Staff\Views\web.config" />
     <Content Include="Areas\Staff\Views\Home\Index.cshtml" />
+    <Content Include="Models\Person.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Person.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Models\Person.dbml.layout">
+      <DependentUpon>Person.dbml</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
@@ -222,6 +237,9 @@
     <Content Include="Views\Layout\Courses.cshtml" />
     <Content Include="Views\Layout\About.cshtml" />
     <Content Include="Views\ActionResults\Index.cshtml" />
+    <Content Include="Views\Home\PersonTable.cshtml" />
+    <Content Include="Views\Home\DisplayPeople.cshtml" />
+    <Content Include="Views\Home\AddPerson.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -235,6 +253,9 @@
     <Folder Include="Areas\Doctor\Views\Shared\" />
     <Folder Include="Areas\Staff\Data\" />
     <Folder Include="Areas\Staff\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

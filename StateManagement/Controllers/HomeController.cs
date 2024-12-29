@@ -3,12 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.IO;
 using System.Web.Mvc;
 
 namespace StateManagement.Controllers
 {
     public class HomeController : Controller
     {
+        // create an instance of the dal class here.
+        PersonDAL PerDalIns = new PersonDAL();
+
         #region
         [HttpGet]
         public ViewResult Index()
@@ -444,6 +448,51 @@ namespace StateManagement.Controllers
          * It is an appraoch of dividing a large mvc application into smaller units where each unit will have its own model, view and controller.
         */
         #endregion
+
+        #region
+        [HttpGet]
+        public ViewResult DisplayPeople()
+        {
+            List<PERSON> people = PerDalIns.GetPeople();
+            // Now a list that we got from the dal class method is passed to a view.
+            return View(people);
+        }
+        #endregion
+
+
+        [HttpGet]
+        public ViewResult AddPerson()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        // once you add the student you need to show displaypeople view
+        public RedirectToRouteResult AddPerson(PERSON per, HttpPostedFileBase selectedFile)
+        // Here in per instance, p_photo is going to be null
+        // selectedFile comes from name attribute in image tag
+        // HttpPostedFileBase : to get the complete details of the file
+        {
+            // uploading the file to the server
+            if (selectedFile != null)
+            {
+                // since we are putting all our images in the uploads folder
+                // we will get the physical path of the uploads in our project
+                string FolderPath = Server.MapPath("~/Uploads/");
+                //If the folder path doesn't exist create one
+                if (!Directory.Exists(FolderPath))
+                {
+                    Directory.CreateDirectory(FolderPath);
+                }
+                //Finally same the image(along with it's path) into the folder which we have created (uploads folder)
+                selectedFile.SaveAs(FolderPath + selectedFile.FileName);
+                per.p_photo = selectedFile.FileName;
+            }
+            // Now this per instance should go to the DAL class, and there we write the database code to insert the values into our database
+
+            return RedirectToAction("DisplayPeople", "Home");
+        }
     }
 }
 

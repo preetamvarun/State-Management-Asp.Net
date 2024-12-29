@@ -1,0 +1,97 @@
+﻿<!--
+    
+Here we are getting a list of person table records from the home controller. So we can write something like
+List<StateManagement.Models.PERSON>
+
+We are getting a list because in PersonDAL.cs after querying the PERSON table we are converting the return type
+TABLE to list. What, if somebody passed directly the table data to the controller without converting to list.
+
+Here is where IEnumerable comes handy. It can hold any type of collection data. 
+
+-->
+
+
+@model IEnumerable<StateManagement.Models.PERSON>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>People</title>
+</head>
+<body>
+    <!--
+        Here the data from the database table should come so that we can display it in the view.
+        So, we need to write some code, that code should talk to the database and get the result.
+        That result we can present it in this view.
+        So, all the code that we write to communicate with the database should be present in the model.
+        But one thing to note here is, we should not modify the files inside Person.dbml
+        Rather, create a new file inside model folder with file name suffixed with DAL (Data Access Layer)
+        Now, all the code that talks with database should be present inside this file
+    -->
+    <div> 
+        <!--
+        Since, we got the data here, we will display it in the table format     
+        -->
+        <h1>Displaying People</h1>
+        <table>
+            <tr>
+                <th>@Html.DisplayNameFor(P => P.p_id)</th>
+                <th>@Html.DisplayNameFor(P => P.p_fname) </th>
+                <th>@Html.DisplayNameFor(P => P.p_mname)</th>
+                <th>@Html.DisplayNameFor(P => P.p_lname)</th>
+                <th>@Html.DisplayNameFor(P => P.p_age)</th>
+                <th>@Html.DisplayNameFor(P => P.p_dob)</th>
+                <th>@Html.DisplayNameFor(P => P.p_gender)</th>
+                <th>@Html.DisplayNameFor(P => P.p_salary)</th>
+                <th>@Html.DisplayNameFor(P => P.p_photo)</th>
+            </tr>
+            <!--We have shown the table headings. Now we have to show the data that is present-->
+            @foreach (var Person in Model)
+            {
+                <tr>
+                    <td>@Person.p_id</td>
+                    <td>@Person.p_fname</td>
+                    <td>@Person.p_mname</td>
+                    <td>@Person.p_lname</td>
+                    <td>@Person.p_age</td>
+                    <td align="center">@Person.p_dob</td>
+                    <td align="center">@Person.p_gender</td>
+                    <td>@Person.p_salary</td>
+                    <td><img src="Uploads/@Person.p_photo" alt="no-img" width="35" height="35"/></td>
+
+                    <!--
+                     With images, the user should select and image and server should store that 
+                     image in some folder (let's say uploads). Now all the image should fall under
+                        this folder.
+
+                    -->
+
+                    <!--
+            Now with each record I want to display three links : view, edit & delete
+            -->
+                    <!--Html.ActionLink(linkText, actionName, controllerName, routeValues, htmlAttributes)-->
+                    <td>
+                        @Html.ActionLink("View", "ShowPerson", "Home", new { p_id = Person.p_id }) <!--One get method-->
+                        @Html.ActionLink("Edit", "EditPerson", "Home", new { p_id = Person.p_id }) <!--One get and One post-->
+                        @Html.ActionLink("Delete", "DeletePerson", "Home", new { p_id = Person.p_id }, 
+                       new { onclick = "return confirm('Are you sure of deleting this record ')" }) <!--One get-->
+                    </td>
+
+                </tr>
+            }
+            <tr>
+                <td colspan="8" align="center">
+                    @Html.ActionLink("Add Person", "AddPerson", "Home") <!-- One get and one post method -->
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
