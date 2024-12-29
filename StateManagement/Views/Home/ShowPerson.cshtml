@@ -1,0 +1,28 @@
+﻿@model StateManagement.Models.PERSON
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowPerson</title>
+</head>
+<body>
+    <div>
+        @Model.p_id
+        @Model.p_fname
+        @Model.p_mname
+        @Model.p_lname
+        @Model.p_age
+        @Model.p_dob
+        @Model.p_gender
+        @Model.p_salary
+        <img src="@Url.Content("~/Uploads/" + Model.p_photo)" alt="no-img" width="35" height="35" />
+    </div>
+</body>
+</html>

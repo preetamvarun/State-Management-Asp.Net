@@ -14,6 +14,8 @@ using System.Configuration;
 5) If you mouse over the datacontext in PersonDataContext you can see, the datacontext is the main entry point for linq to sql framework,
 since the PersonDataContext is inheriting from the datacontext, we are creating an instance of 
 Person data context in this file to communicate with the database
+6)Model doesn't talk with view or View doesn't talk with Model. Model -> Controller -> View
+View -> Controller -> Model
 */
 
 #endregion
@@ -38,7 +40,7 @@ namespace StateManagement.Models
             // NOTE : It's better the pass the list data to the views 
             try
             {
-                return (from p in DataContext.PERSONs where p.p_gender.Equals('M') orderby p.p_age descending select p).ToList();
+                return (from p in DataContext.PERSONs select p).ToList();
             }
             // controller gets this execption and it will prompt the user about this exception
             catch (Exception ex)
@@ -47,6 +49,41 @@ namespace StateManagement.Models
             }
         // Now you are done with the select method in the dal class. Now, create an instance of this dal
         // class in the controller. 
+        }
+
+        // Method to add data to the PERSON table
+        public void InsertPersonRecord(PERSON per)
+        {
+            /*
+             * In orm, tables -> classes, columns -> properties, records -> instances
+            */
+            try
+            {
+                // saves the instace in the local table
+                DataContext.PERSONs.InsertOnSubmit(per);
+                // commit the changes to the actual db
+                DataContext.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        // Method to read one record 
+        public PERSON SelectRecord(int p_id)
+        {
+            try
+            {
+                PERSON P = (from p in DataContext.PERSONs where p.p_id == p_id select p).Single();
+                return P;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

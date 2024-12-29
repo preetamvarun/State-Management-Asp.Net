@@ -64,7 +64,9 @@ Here is where IEnumerable comes handy. It can hold any type of collection data.
                     <td align="center">@Person.p_dob</td>
                     <td align="center">@Person.p_gender</td>
                     <td>@Person.p_salary</td>
-                    <td><img src="Uploads/@Person.p_photo" alt="no-img" width="35" height="35"/></td>
+                    <td>
+                        <img src="@Url.Content("~/Uploads/" + Person.p_photo)" alt="no-img" width="35" height="35" />
+                    </td>
 
                     <!--
                      With images, the user should select and image and server should store that 
@@ -78,8 +80,8 @@ Here is where IEnumerable comes handy. It can hold any type of collection data.
             -->
                     <!--Html.ActionLink(linkText, actionName, controllerName, routeValues, htmlAttributes)-->
                     <td>
-                        @Html.ActionLink("View", "ShowPerson", "Home", new { p_id = Person.p_id }) <!--One get method-->
-                        @Html.ActionLink("Edit", "EditPerson", "Home", new { p_id = Person.p_id }) <!--One get and One post-->
+                        @Html.ActionLink("View", "ShowPerson", "Home", new { p_id = Person.p_id }, new {}) <!--One get method-->
+                        @Html.ActionLink("Edit", "EditPerson", "Home", new { p_id = Person.p_id }, new {}) <!--One get and One post-->
                         @Html.ActionLink("Delete", "DeletePerson", "Home", new { p_id = Person.p_id }, 
                        new { onclick = "return confirm('Are you sure of deleting this record ')" }) <!--One get-->
                     </td>

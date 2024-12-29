@@ -240,6 +240,7 @@
     <Content Include="Views\Home\PersonTable.cshtml" />
     <Content Include="Views\Home\DisplayPeople.cshtml" />
     <Content Include="Views\Home\AddPerson.cshtml" />
+    <Content Include="Views\Home\ShowPerson.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

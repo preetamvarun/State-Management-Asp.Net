@@ -449,7 +449,7 @@ namespace StateManagement.Controllers
         */
         #endregion
 
-        #region
+        #region SELECTALL
         [HttpGet]
         public ViewResult DisplayPeople()
         {
@@ -459,6 +459,8 @@ namespace StateManagement.Controllers
         }
         #endregion
 
+
+        #region Insert
 
         [HttpGet]
         public ViewResult AddPerson()
@@ -490,10 +492,17 @@ namespace StateManagement.Controllers
                 per.p_photo = selectedFile.FileName;
             }
             // Now this per instance should go to the DAL class, and there we write the database code to insert the values into our database
-
+            PerDalIns.InsertPersonRecord(per);
             return RedirectToAction("DisplayPeople", "Home");
         }
+        #endregion
+        public ViewResult ShowPerson(int p_id)
+        {
+            PERSON person = PerDalIns.SelectRecord(p_id);
+            return View(person);
+        }
     }
+
 }
 
 
