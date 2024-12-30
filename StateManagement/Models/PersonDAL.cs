@@ -85,5 +85,47 @@ namespace StateManagement.Models
             }
 
         }
+
+        // Method to update record 
+        public void updateRecord(PERSON newPerson)
+        {
+
+            try
+            {
+                // get a reference of the existing instance (existing record in the table)
+                PERSON oldPerson = DataContext.PERSONs.First(P => P.p_id == newPerson.p_id);
+
+                oldPerson.p_fname = newPerson.p_fname;
+                oldPerson.p_mname = newPerson.p_mname;
+                oldPerson.p_dob = newPerson.p_dob;
+                oldPerson.p_photo = newPerson.p_photo;
+                oldPerson.p_age = newPerson.p_age;
+                oldPerson.p_gender = newPerson.p_gender;
+                oldPerson.p_lname = newPerson.p_lname;
+                oldPerson.p_salary = newPerson.p_salary;
+                DataContext.SubmitChanges();
+            }
+
+            catch (Exception e) 
+            { 
+                throw e;
+            }
+            
+        }
+
+        public void DeleteRecord(PERSON person)
+        {
+            try
+            {
+                // permanently delete the records from the database (not recommended, instead follow the procedure similar to updating records.
+                // But here just update one attribute and based on that attribute display records.
+                // Like for example, keep an attribute like status. when person deletes a record, instead of deleting the
+                // record from the database, update the status attribute to false. Display records whose attribute status is true.
+                // In this way, you won't loose the data in the database)
+                DataContext.PERSONs.DeleteOnSubmit(person);
+                DataContext.SubmitChanges();
+            }
+            catch(Exception e) { throw e; }
+        }
     }
 }

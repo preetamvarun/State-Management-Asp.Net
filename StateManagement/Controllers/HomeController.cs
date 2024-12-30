@@ -501,6 +501,46 @@ namespace StateManagement.Controllers
             PERSON person = PerDalIns.SelectRecord(p_id);
             return View(person);
         }
+
+
+        [HttpGet]
+        public ViewResult EditPerson(int p_id)
+        {
+            PERSON person = PerDalIns.SelectRecord(p_id);
+            TempData["photo"] = person.p_photo;
+            return View(person);
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult EditPerson(PERSON p, HttpPostedFileBase selectedFile)
+        {
+            // user has updated his photo
+            if (selectedFile != null)
+            {
+                string FolderPath = Server.MapPath("~/Uploads/");
+                if (!Directory.Exists(FolderPath)) Directory.CreateDirectory(FolderPath);
+                //Finally same the image(along with it's path) into the folder which we have created (uploads folder)
+                selectedFile.SaveAs(FolderPath + selectedFile.FileName);
+                p.p_photo = selectedFile.FileName;
+            }
+            // user has not updated his photo
+            else
+            {
+                p.p_photo = TempData["photo"].ToString();
+            }
+            PerDalIns.updateRecord(p);
+            return RedirectToAction("DisplayPeople", "Home");
+        }
+
+
+        [HttpGet]
+        public RedirectToRouteResult DeletePerson(int p_id)
+        {
+            PERSON person = PerDalIns.SelectRecord(p_id);
+            PerDalIns.DeleteRecord(person);
+            return RedirectToAction("DisplayPeople", "Home");
+        }
+
     }
 
 }

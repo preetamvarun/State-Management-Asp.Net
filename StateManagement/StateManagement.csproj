@@ -241,6 +241,7 @@
     <Content Include="Views\Home\DisplayPeople.cshtml" />
     <Content Include="Views\Home\AddPerson.cshtml" />
     <Content Include="Views\Home\ShowPerson.cshtml" />
+    <Content Include="Views\Home\EditPerson.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
