@@ -137,6 +137,8 @@
     <Content Include="Views\Home\ProcessProduct.cshtml" />
     <Content Include="Views\Home\DisplayStudents.cshtml" />
     <Content Include="Views\Home\DisplayStudent.cshtml" />
+    <Content Include="Views\Home\AddStudent.cshtml" />
+    <Content Include="Views\Home\UpdateStudent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

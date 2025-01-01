@@ -20,7 +20,7 @@
                 <th>@Html.DisplayNameFor(S => S.student_age)</th>
                 <th>@Html.DisplayNameFor(S => S.student_class)</th>
                 <th>@Html.DisplayNameFor(S => S.student_fees)</th>
-                <th>Manage Students</th>
+                <th colspan="4">Manage Students</th>
             </thead>
             <tbody>
                 @foreach(var student in Model)
@@ -32,7 +32,7 @@
                         <td>@student.student_class</td>
                         <td>@student.student_fees</td>
                         <td>@Html.ActionLink("View","DisplayStudent","Home",  new { id = student.student_id }, null)</td>
-                        <td>@Html.ActionLink("Update", "EditStudent", "Home", new { id = student.student_id }, null)</td>
+                        <td>@Html.ActionLink("Update", "UpdateStudent", "Home", new { id = student.student_id }, null)</td>
                         <td>@Html.ActionLink("Delete","DeleteStudent","Home", new { id = student.student_id }, null)</td>
                     </tr>
                  }

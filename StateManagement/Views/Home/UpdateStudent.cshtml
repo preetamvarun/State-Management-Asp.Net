@@ -1,0 +1,38 @@
+﻿@model StateManagement.Models.Select_On_StudentResult
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UpdateStudent</title>
+</head>
+<body>
+        <h1>Update here</h1>
+        @using (Html.BeginForm("UpdateStudent", "Home", FormMethod.Post))
+        {
+            <div>
+                @Html.LabelFor(S => S.student_name)
+                @Html.TextBoxFor(S => S.student_name, new { PlaceHolder = "Enter the name of the student" })
+            </div>
+            <div>
+                @Html.LabelFor(S => S.student_age)
+                @Html.TextBoxFor(S => S.student_age, new { type = "number", PlaceHolder = "Ener the student age" })
+            </div>
+            <div>
+                @Html.LabelFor(S => S.student_class)
+                @Html.TextBoxFor(S => S.student_class, new { type = "number", PlaceHolder = "Enter Student Class" })
+            </div>
+            <div>
+                @Html.LabelFor(S => S.student_fees)
+                @Html.TextBoxFor(S => S.student_fees, new { type = "number", PlaceHolder = "Enter Student Fees" })
+            </div>
+        <button type="submit">Save</button>
+    }
+
+    </body>
+</html>

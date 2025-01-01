@@ -323,12 +323,18 @@ namespace StateManagement.Controllers
 
         #endregion
 
+        #region SelectAll
+
         [HttpGet]
         public ViewResult DisplayStudents()
         {
-            var students = DataContext.Select_On_Student(null,null).ToList();
+            var students = DataContext.Select_On_Student(null,true).ToList();
             return View(students);
         }
+
+        #endregion
+
+        #region Select One
 
         [HttpGet]
         public ViewResult DisplayStudent(int id)
@@ -337,11 +343,57 @@ namespace StateManagement.Controllers
             return View(student);
         }
 
+        #endregion
+
+
+        #region Add a student to database
+
         [HttpGet]
         public ViewResult AddStudent()
         {
             return View();
         }
+
+        [HttpPost]
+        public RedirectToRouteResult AddStudent(Select_On_StudentResult student)
+        {
+            DataContext.Insert_On_Student(student.student_name,student.student_age, student.student_class, student.student_fees);
+            return RedirectToAction("DisplayStudents","Home");
+        }
+        #endregion
+
+
+        #region Delete
+
+        [HttpGet]
+        public RedirectToRouteResult DeleteStudent(int id)
+        {
+            DataContext.Delete_On_Student(id);
+            return RedirectToAction("DisplayStudents", "Home");
+        }
+
+        #endregion
+
+
+        #region update 
+
+        [HttpGet]
+        public ViewResult UpdateStudent(int id)
+        {
+            Select_On_StudentResult student = DataContext.Select_On_Student(id, null).Single();
+            return View(student);
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult UpdateStudent(Select_On_StudentResult student, int id)
+        {
+            DataContext.Update_On_Student(id, student.student_name, student.student_age, student.student_class, student.student_fees);
+            return RedirectToAction("DisplayStudents", "Home");
+        }
+
+        #endregion
+
+
     }
 }
 
