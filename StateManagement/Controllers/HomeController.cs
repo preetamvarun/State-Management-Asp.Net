@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Configuration;
 
 namespace StateManagement.Controllers
 {
     public class HomeController : Controller
     {
+
+        StudentInfoDBDataContext DataContext = new StudentInfoDBDataContext(ConfigurationManager.ConnectionStrings["StudentInfoConnectionString"].ConnectionString);
+
         #region
         [HttpGet]
         public ViewResult Index()
@@ -319,6 +323,25 @@ namespace StateManagement.Controllers
 
         #endregion
 
+        [HttpGet]
+        public ViewResult DisplayStudents()
+        {
+            var students = DataContext.Select_On_Student(null,null).ToList();
+            return View(students);
+        }
+
+        [HttpGet]
+        public ViewResult DisplayStudent(int id)
+        {
+            var student = DataContext.Select_On_Student(id, null).Single();
+            return View(student);
+        }
+
+        [HttpGet]
+        public ViewResult AddStudent()
+        {
+            return View();
+        }
     }
 }
 

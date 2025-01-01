@@ -1,0 +1,44 @@
+﻿@model IEnumerable<StateManagement.Models.Select_On_StudentResult>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplayStudents</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <thead>
+                <th>@Html.DisplayNameFor(S => S.student_id)</th>
+                <th>@Html.DisplayNameFor(S => S.student_name)</th>
+                <th>@Html.DisplayNameFor(S => S.student_age)</th>
+                <th>@Html.DisplayNameFor(S => S.student_class)</th>
+                <th>@Html.DisplayNameFor(S => S.student_fees)</th>
+                <th>Manage Students</th>
+            </thead>
+            <tbody>
+                @foreach(var student in Model)
+                 {
+                    <tr>
+                        <td>@student.student_id</td>
+                        <td>@student.student_name</td>
+                        <td>@student.student_age</td>
+                        <td>@student.student_class</td>
+                        <td>@student.student_fees</td>
+                        <td>@Html.ActionLink("View","DisplayStudent","Home",  new { id = student.student_id }, null)</td>
+                        <td>@Html.ActionLink("Update", "EditStudent", "Home", new { id = student.student_id }, null)</td>
+                        <td>@Html.ActionLink("Delete","DeleteStudent","Home", new { id = student.student_id }, null)</td>
+                    </tr>
+                 }
+            </tbody>
+        </table>
+        @Html.ActionLink("Add New Student", "AddStudent", "Home")
+    </div>
+</body>
+</html>
