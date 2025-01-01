@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="master" Class="MVCDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Function Name="dbo.Delete_On_Employee" Method="Delete_On_Employee">
+    <Parameter Name="emp_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Insert_On_Department" Method="Insert_On_Department">
+    <Parameter Name="dp_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="dp_location" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Insert_On_Employee" Method="Insert_On_Employee">
+    <Parameter Name="emp_name" Type="System.String" DbType="VarChar(75)" />
+    <Parameter Name="emp_salary" Type="System.Decimal" DbType="Decimal(10,2)" />
+    <Parameter Name="emp_age" Type="System.Int32" DbType="Int" />
+    <Parameter Name="emp_dp_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Select_On_EmpDpt" Method="Select_On_EmpDpt">
+    <Parameter Name="emp_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="isActive" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Select_On_EmpDptResult">
+      <Column Name="emp_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="emp_name" Type="System.String" DbType="VarChar(75) NOT NULL" CanBeNull="false" />
+      <Column Name="emp_salary" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="emp_age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dp_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dp_location" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Update_On_Employee" Method="Update_On_Employee">
+    <Parameter Name="emp_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="emp_name" Type="System.String" DbType="VarChar(75)" />
+    <Parameter Name="emp_salary" Type="System.Decimal" DbType="Decimal(10,2)" />
+    <Parameter Name="emp_age" Type="System.Int32" DbType="Int" />
+    <Parameter Name="emp_dp_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

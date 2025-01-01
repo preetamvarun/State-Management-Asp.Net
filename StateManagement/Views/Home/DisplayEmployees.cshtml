@@ -1,0 +1,46 @@
+﻿@model  List<StateManagement.Models.Select_On_EmpDptResult>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplayEmployees</title>
+</head>
+<body>
+    <div> 
+        <h1>Employee Information</h1>
+        <table>
+            <thead>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Employee Salary</th>
+                <th>Employee Age</th>
+                <th>Department Name</th>
+                <th>Department Location</th>
+                <th colspan="6">Manage Employees</th>
+            </thead>
+            <tbody>
+                @foreach (var record in @Model)
+                {
+                    <tr>
+                        <td>@record.emp_id</td>
+                        <td>@record.emp_name</td>
+                        <td>@record.emp_salary</td>
+                        <td>@record.emp_age</td>
+                        <td>@record.dp_name</td>
+                        <td>@record.dp_location</td>
+                        <td>@Html.ActionLink("View", "DisplayEmployee", "Home", new { id = record.emp_id }, null)</td>
+                        <td></td>
+                        <td>@Html.ActionLink("Delete", "DeleteEmployee", "Home", new { id = record.emp_id }, new { onclick = "return confirm('Are you sure you want to delete this employee?')" })</td>
+                    </tr>
+                 }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

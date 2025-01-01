@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Configuration;
 
 namespace StateManagement.Controllers
 {
     public class HomeController : Controller
     {
+
+        MVCDBDataContext db = new MVCDBDataContext(ConfigurationManager.ConnectionStrings["masterConnectionString"].ConnectionString);
+
         #region
         [HttpGet]
         public ViewResult Index()
@@ -318,6 +322,27 @@ namespace StateManagement.Controllers
 
 
         #endregion
+
+        [HttpGet]
+        public ViewResult DisplayEmployees()
+        {
+            List< Select_On_EmpDptResult > EmpDpts = db.Select_On_EmpDpt(null,1).ToList();
+            return View(EmpDpts);
+        }
+
+        [HttpGet]
+        public ViewResult DisplayEmployee(int id)
+        {
+            var EmpInfo = db.Select_On_EmpDpt(id, null).Single();
+            return View(EmpInfo);
+        }
+
+        [HttpGet]
+        public RedirectToRouteResult DeleteEmployee(int id)
+        {
+            db.Delete_On_Employee(id);
+            return RedirectToAction("DisplayEmployees", "Home");
+        }
 
     }
 }
